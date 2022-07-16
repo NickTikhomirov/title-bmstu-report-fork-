@@ -104,9 +104,6 @@ const generalGeneratorChain: ChainItem[] = [
     },
 ];
 
-// ============= ============== =============
-// ============= report section =============
-// ============= ============== =============
 const reportTitleGeneratorChain: ChainItem[] = [
     {
         function: config => [
@@ -149,6 +146,9 @@ const practiceTitleGeneratorChain: ChainItem[] = [
                 /_/g,
                 '\\_',
             )}}
+
+\\newcommand{\\practiceprofile}{${config.title?.practice?.author.profile}}
+\\newcommand{\\practicestudentstatus}{${config.title?.practice?.author.status}}
 
 \\newcommand{\\practicereviewer}{${config.title?.practice?.reviewer.value}}
 

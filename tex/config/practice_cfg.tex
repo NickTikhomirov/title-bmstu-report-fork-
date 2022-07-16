@@ -1,12 +1,16 @@
+\newcommand{\practicetick}{\noindent-\,}
+
+
+
 \makeatletter
 \def\Pracf#1{\expandafter\@Pracf\csname c@#1\endcsname}
 \def\@Pracf#1{%
     \ifcase#1\or
-    учебной\or%
-    учебной\or%
-    производственной\or%
-    производственной\or%
-    производственной\else\@ctrerr\fi%
+    Учебной\or%
+    Учебной\or%
+    Производственной\or%
+    Производственной\or%
+    Производственной\else\@ctrerr\fi%
 }
 \makeatother
 
@@ -15,11 +19,11 @@
 \def\@Pracs#1{%
     \ifcase#1
     \TODO\or
-    учебная\or%
-    учебно-технологическая\or%
-    производственная\or%
-    технологическая\or%
-    эксплуатационная\else\@ctrerr\fi%
+    Учебная\or%
+    Учебно-технологическая\or%
+    Производственная\or%
+    Технологическая\or%
+    Эксплуатационная\else\@ctrerr\fi%
 }
 \makeatother
 
@@ -40,7 +44,7 @@
 {\practprocesstask{#1}\expandafter\csname printall\endcsname}%
 }
 
-\newcommand{\practprocesstask}[1]{\noindent-\,\practformat{#1}\\{}}
+\newcommand{\practprocesstask}[1]{\practicetick{}\practformat{#1}\\{}}
 
 % solution from: https://tex.stackexchange.com/questions/316730/extract-first-word-in-a-string
 \makeatletter

@@ -1,8 +1,33 @@
-\newcommand{\placeholder}{
-    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\newcommand{\placeholder}{%
+    \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_%
+}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{v}{>{\centering\arraybackslash}p{5cm}}
+
+\newcommand{\fancyone}{% UNUSED
+\fancyfoot[C]{\noindent Москва, \year}
 }
 
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcommand{\fancytwo}{%
+\fancyfoot[L]{%
+    \vspace{-5ex}
+    \fontsize{10}{10}\selectfont
+    \noindent Является обязательным листом отчёта по практике. Лист 2\\
+    \noindent Документ не должен содержать информацию, отнесённую в установленном порядке к государственной тайне РФ.
+}}
+
+
+
+
+\newcommand{\placesubscript}[3][]{%
+\begin{tabular}[c]{@{}l@{}}
+    #3: #1\\
+    #2
+\end{tabular}%
+}
+
+
+
 \newcommand{\titletitle}{
     \fontsize{\getfontsize}{\getfontsize}\selectfont
     {
@@ -56,39 +81,14 @@
 \newcommand{\titlestudenttable}{
     \begin{justify}
         \noindent\fontsize{12}{12}\selectfont
-        \begin{tabularx}{\textwidth}{@{}X@{}l}
-            \noindent\begin{tabular}[c]{@{}l@{}}
-                         \noindent Студент: \\
-                         \student
-            \end{tabular} &
-            \begin{tabular}[c]{@{}c@{}}
-                \\
-                \\
-                \\
-                \placeholder \\
-                {\fontsize{10}{10}\selectfont (подпись, дата)}
-            \end{tabular}
-            \\
-            \begin{tabular}[c]{@{}l@{}}
-                Руководитель от предприятия: \\
-                \practicefacilityleader
-            \end{tabular} & \begin{tabular}[c]{@{}c@{}}
-                                \\
-                                \\
-                                \\
-                                \placeholder \\
-                                {\fontsize{10}{10}\selectfont (подпись, дата)}
-            \end{tabular} \\
-            \begin{tabular}[c]{@{}l@{}}
-                Руководитель от кафедры: \\
-                \practicereviewer
-            \end{tabular} & \begin{tabular}[c]{@{}c@{}}
-                                \\
-                                \\
-                                \\
-                                \placeholder \\
-                                {\fontsize{10}{10}\selectfont (подпись, дата)}
-            \end{tabular}
+        \begin{tabularx}{\textwidth}{@{}X@{}>{\hfill}c@{}v@{}}
+            \noindent
+            \placesubscript[\practicestudentstatus]{\student}{Студент} & & \\ \cline{3-3} 
+            & & {\fontsize{10}{10}\selectfont (подпись, дата)} \\
+            \placesubscript{\practicefacilityleader}{Руководитель от предприятия} & & \\ \cline{3-3} 
+            & & {\fontsize{10}{10}\selectfont (подпись, дата)} \\
+            \placesubscript{\practicereviewer}{Руководитель от кафедры} & & \\ \cline{3-3} 
+            & & {\fontsize{10}{10}\selectfont (подпись, дата)} 
         \end{tabularx}
     \end{justify}
 }
@@ -106,7 +106,7 @@
     \fontsize{12}{12}\selectfont
 
     \noindent
-    Тип практики: \practicetype
+    Тип практики: \practicetype{} практика
 
     \noindent
     Название предприятия: \practicefacility
@@ -116,18 +116,14 @@
 
 \titlestudenttable
 
-\text{}
+\vfill
 
 \begin{justify}
     \noindent\fontsize{12}{12}\selectfont
     Оценка: \placeholder
 \end{justify}
 
-\text{}
-
-\text{}
-
-\text{}
+\vfill
 
 \begin{center}
     \fontsize{12}{12}\selectfont
@@ -140,7 +136,8 @@
 
 \newpage
 \clearpage
-\thispagestyle{empty}
+\fancytwo
+\thispagestyle{fancy}
 \titletitle
 
 \begin{center}
@@ -152,7 +149,7 @@
 \begin{justify}
     \fontsize{12}{12}\selectfont
     \noindent
-    Тип практики: \practicetype
+    Тип практики: \practicetype{} практика
 
     \noindent
     Название предприятия: \practicefacility
@@ -161,7 +158,10 @@
     Сроки практики: \practiceduration
 
     \noindent
-    Специальность: \practicespec
+    Специальность / направление: \practicespec
+
+    \noindent
+    Специализация / профиль: \practiceprofile
 
 \end{justify}
 
@@ -175,14 +175,5 @@
 
 \minussingle
 \titlestudenttable
-
-\vfill
-
-\begin{justify}
-    \fontsize{10}{10}\selectfont
-    \noindent Является обязательным листом отчёта по практике. Лист 2
-
-    \noindent Документ не должен содержать информацию, отнесённую в установленном порядке к государственной тайне РФ.
-\end{justify}
 
 \newpage

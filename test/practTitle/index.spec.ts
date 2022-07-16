@@ -22,6 +22,8 @@ describe('generateTitleConfigs with LaTeX', () => {
         '\\practicefacility',
         '\\practicefacilityleader',
         '\\practiceduration',
+        '\\practicestudentstatus',
+        '\\practiceprofile',
         '\\practicetasks',
     ].forEach(command =>
         test(`Command "${command}" should exists`, () => {
@@ -39,6 +41,8 @@ describe('generateTitleConfigs with LaTeX', () => {
         'Twitter',
         'Elon Musk',
         '01.01.1970-19.01.2038',
+        'Turbopascal',
+        'The Supreme',
         '{Do a thing;}{Investigate another thing;}{Collect some money.}{}',
     ].forEach(text =>
         test(`Text "${text} should exists"`, () => {

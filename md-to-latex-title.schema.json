@@ -219,11 +219,21 @@
                 },
                 "specializationExpanded": {
                     "type": "string",
-                    "description": "Specialization, f.e. 10.05.03_01",
+                    "description": "Specialization, f.e. 10.05.03_01 i.b.a.s.",
+                    "minLength": 0
+                },
+                "profile": {
+                    "type": "string",
+                    "description": "Full cool name of your spec, f.e. secure system creation",
+                    "minLength": 0
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Here you can write something like 'student from class 10b'",
                     "minLength": 0
                 }
             },
-            "required": ["afterCourse", "specializationExpanded"],
+            "required": ["afterCourse", "specializationExpanded", "status", "profile"],
             "additionalProperties": false
         },
         "TitlePracticeTimePlace": {
