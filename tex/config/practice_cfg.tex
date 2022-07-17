@@ -33,7 +33,11 @@
 
 
 \def\getfontsize{14}% это кто
-\setcounter{yearascntr}{\practiceid}
+\ifcsname practiceid\endcsname{
+    \setcounter{yearascntr}{\practiceid}
+}\else{
+    \setcounter{yearascntr}{1}
+}\fi
 \def\practicekind{\GetPracticeFirst}
 \def\practicetype{\GetPracticeSecond}
 
